@@ -1,0 +1,13 @@
+.table-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+.custom-table {
+  width: 100%;
+  color: deepskyblue;
+  padding: 25px 10px;
+}
+td {
+  height: 60px;
+  background: #fafafa;
+}
