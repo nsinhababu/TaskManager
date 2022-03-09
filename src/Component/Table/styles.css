@@ -1,13 +1,35 @@
 .table-wrapper {
   width: 1200px;
   margin: 0 auto;
+  background-color: lightblue;
 }
+
 .custom-table {
   width: 100%;
-  color: deepskyblue;
-  padding: 25px 10px;
+  color: black;
+  padding: 50px 10px 10px;
+  box-shadow: 6px 6px 20px lightgrey;
+}
+.add-btn {
+  position: absolute;
+  top: 85px;
+  right: 181px;
+  padding: 5px 19px;
+  border-color: green;
+  color: green;
+  background-color: white;
 }
 td {
-  height: 60px;
-  background: #fafafa;
+  height: 70px;
+  background: white;
+}
+.delete {
+  color: red;
+  padding: 5px;
+  border: 1px solid red;
+  background-color: white;
+}
+th {
+  height: 80px;
+  background-color: aliceblue;
 }

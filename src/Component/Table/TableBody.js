@@ -1,15 +1,25 @@
 const TableBody = () => {
   const arr = [1, 2, 3, 4];
+
+  const btnDetails = {
+    delete: {
+      value: 'Delete',
+      className: 'delete',
+    },
+  };
+
   return (
     <tbody className='table-body'>
-      {arr.map(() => {
+      {arr.map((number, index) => {
         return (
-          <tr>
+          <tr key={index}>
             <td>xyz</td>
             <td>abc</td>
             <td>mno</td>
             <td>pqr</td>
-            <td>stu</td>
+            <td>
+              <button className='delete'>Delete</button>
+            </td>
           </tr>
         );
       })}
