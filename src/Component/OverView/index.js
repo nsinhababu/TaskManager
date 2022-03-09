@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// import utils
+// Import utils
 import { fetchApi } from '../../utils';
 
 // Components
@@ -15,19 +15,23 @@ const OverView = () => {
     setAddTask(!addTask);
     console.log(addTask);
   };
+  let [userList, setUserList] = useState([]);
 
   useEffect(() => {
-    const usersList = fetchApi('listusers');
-    console.log(
-      '🚀 ~ file: index.js ~ line 21 ~ useEffect ~ usersList',
-      usersList
-    );
+    fetchApi('listusers').then(({ users }) => {
+      setUserList(users);
+    });
   }, []);
+  // console.log(userList);
 
   return (
     <>
       <NavBar />
-      <NewTask newTaskWindowHandler={newTaskWindowHandler} addTask={addTask} />
+      <NewTask
+        userList={userList}
+        newTaskWindowHandler={newTaskWindowHandler}
+        addTask={addTask}
+      />
 
       <Table newTaskWindowHandler={newTaskWindowHandler} addTask={addTask} />
     </>

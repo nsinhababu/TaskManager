@@ -1,7 +1,7 @@
 .table-wrapper {
   width: 1200px;
   margin: 0 auto;
-  background-color: lightblue;
+  background-color: #fafafa;
 }
 
 .custom-table {
@@ -12,10 +12,10 @@
 }
 .add-btn {
   position: absolute;
-  top: 85px;
+  top: 95px;
   right: 181px;
   padding: 5px 19px;
-  border-color: green;
+  border: 1px solid green;
   color: green;
   background-color: white;
 }
