@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+// import utils
+import { fetchApi } from '../../utils';
+
 // Components
 import NewTask from '../NewTask';
 import NavBar from '../NavBar';
@@ -11,6 +15,14 @@ const OverView = () => {
     setAddTask(!addTask);
     console.log(addTask);
   };
+
+  useEffect(() => {
+    const usersList = fetchApi('listusers');
+    console.log(
+      '🚀 ~ file: index.js ~ line 21 ~ useEffect ~ usersList',
+      usersList
+    );
+  }, []);
 
   return (
     <>
