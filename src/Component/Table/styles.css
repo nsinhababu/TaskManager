@@ -9,6 +9,11 @@
   color: black;
   padding: 50px 10px 10px;
   box-shadow: 6px 6px 20px lightgrey;
+  text-align: left;
+}
+th,
+td {
+  padding-left: 10px;
 }
 .add-btn {
   position: absolute;

@@ -26,16 +26,12 @@ const OverView = () => {
     fetchApi('list').then(({ tasks }) => setTaskList(tasks));
   }, []);
 
-  const addNewTask = () => {
-    // setTask(!addTask);
-  };
-
   return (
     <div className='overview'>
       <NavBar />
-      <NewTask userList={userList} addNewTask={addNewTask} />
+      <NewTask userList={userList} />
 
-      <Table taskList={taskList} addNewTask={addNewTask} />
+      <Table taskList={taskList} />
     </div>
   );
 };

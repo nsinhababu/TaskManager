@@ -4,7 +4,7 @@ import TableBody from './TableBody';
 
 // styles
 import './styles.css';
-const Table = ({ addNewTask, taskList }) => {
+const Table = ({ taskList }) => {
   let slicedTaskList = taskList?.slice(0, 10);
 
   return (

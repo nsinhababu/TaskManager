@@ -19,9 +19,9 @@ const TableBody = ({ slicedTaskList }) => {
         return (
           <tr key={id}>
             <td>{message}</td>
-            <td>{assigned_name}</td>
+            <td>{assigned_name || 'N/A'}</td>
             <td>{created_on}</td>
-            <td>{due_date}</td>
+            <td>{due_date || 'N/A'}</td>
             <td>{showPriority(priority)}</td>
             <td>
               <button className='delete'>Delete</button>
