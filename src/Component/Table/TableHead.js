@@ -4,7 +4,8 @@ const TableHead = () => {
       <tr>
         <th>Task</th>
         <th>Assigned to</th>
-        <th>Date</th>
+        <th>Created On</th>
+        <th>Due Date</th>
         <th>Priority</th>
         <th>Manage</th>
       </tr>

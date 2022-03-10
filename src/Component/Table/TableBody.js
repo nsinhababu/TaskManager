@@ -1,22 +1,28 @@
-const TableBody = () => {
-  const arr = [1, 2, 3, 4];
+import Pill from '../Pill';
 
-  const btnDetails = {
-    delete: {
-      value: 'Delete',
-      className: 'delete',
-    },
+import { priorityTypes } from '../../utils/consts';
+
+const TableBody = ({ slicedTaskList }) => {
+  console.log(slicedTaskList);
+
+  const showPriority = (priority) => {
+    const currentPriority = priorityTypes[priority];
+    const { color, text } = currentPriority || {};
+    return <Pill text={text} color={color} />;
   };
 
   return (
     <tbody className='table-body'>
-      {arr.map((number, index) => {
+      {(slicedTaskList || []).map((task) => {
+        const { id, assigned_name, message, created_on, due_date, priority } =
+          task || {};
         return (
-          <tr key={index}>
-            <td>xyz</td>
-            <td>abc</td>
-            <td>mno</td>
-            <td>pqr</td>
+          <tr key={id}>
+            <td>{message}</td>
+            <td>{assigned_name}</td>
+            <td>{created_on}</td>
+            <td>{due_date}</td>
+            <td>{showPriority(priority)}</td>
             <td>
               <button className='delete'>Delete</button>
             </td>

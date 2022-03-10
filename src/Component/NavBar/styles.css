@@ -1,0 +1,7 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  opacity: 1;
+  height: 60px;
+}

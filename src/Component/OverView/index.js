@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import './styles.css';
+
 // Import utils
 import { fetchApi } from '../../utils';
 
@@ -9,32 +11,32 @@ import NavBar from '../NavBar';
 import Table from '../Table';
 
 const OverView = () => {
-  let [addTask, setAddTask] = useState(false);
-
-  const newTaskWindowHandler = () => {
-    setAddTask(!addTask);
-    console.log(addTask);
-  };
-  let [userList, setUserList] = useState([]);
+  // const [task, setTask] = useState(false);
+  const [userList, setUserList] = useState([]);
+  const [taskList, setTaskList] = useState([]);
 
   useEffect(() => {
     fetchApi('listusers').then(({ users }) => {
       setUserList(users);
     });
   }, []);
-  // console.log(userList);
+
+  // task api
+  useEffect(() => {
+    fetchApi('list').then(({ tasks }) => setTaskList(tasks));
+  }, []);
+
+  const addNewTask = () => {
+    // setTask(!addTask);
+  };
 
   return (
-    <>
+    <div className='overview'>
       <NavBar />
-      <NewTask
-        userList={userList}
-        newTaskWindowHandler={newTaskWindowHandler}
-        addTask={addTask}
-      />
+      <NewTask userList={userList} addNewTask={addNewTask} />
 
-      <Table newTaskWindowHandler={newTaskWindowHandler} addTask={addTask} />
-    </>
+      <Table taskList={taskList} addNewTask={addNewTask} />
+    </div>
   );
 };
 export default OverView;

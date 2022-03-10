@@ -1,7 +1,6 @@
 import './styles.css';
 
 const NewTask = ({ newTaskWindowHandler, addTask, userList }) => {
-  console.log(userList);
   return (
     <div className={addTask === true ? 'show' : 'hide'}>
       <button onClick={newTaskWindowHandler} className='close-window'>
@@ -13,12 +12,9 @@ const NewTask = ({ newTaskWindowHandler, addTask, userList }) => {
         </div>
         <div className='other-info'>
           <select className='assign-to'>
-            <option value='' disabled selected>
-              Assign to
-            </option>
             {userList?.map((user) => {
               return (
-                <option value={user?.name} key={user?.id}>
+                <option value={user?.id} key={user?.id}>
                   {user?.name}
                 </option>
               );

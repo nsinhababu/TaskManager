@@ -1,6 +1,8 @@
+import './styles.css';
+
 const NavBar = () => {
   return (
-    <nav className='nav'>
+    <nav className='navbar'>
       <h1>Task Manager</h1>
     </nav>
   );
