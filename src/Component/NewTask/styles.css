@@ -1,62 +1,58 @@
-.container-form {
-  width: 800px;
-  margin: 0 auto;
-  height: 300px;
-  padding: 20px;
-  background-color: #fafafa;
+.newTask-container {
+  padding: 10px;
+  margin-top: 20px;
+  background: #fafafa;
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
 }
-.task-container {
-  flex: 2;
-}
-.close-window {
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  right: 370px;
-  top: 92px;
-  background: white;
-  border: 1px solid lightgray;
-}
-.task {
-  display: inline-block;
+.container-form {
   width: 100%;
-  height: 100%;
-  font-size: 5rem;
-  border: 1px solid rgba(211, 211, 211, 0.685);
-  padding: 2px 5px;
-}
-.task:focus {
-  font-size: 1.2rem;
-}
-.other-info {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  flex: 1;
+  align-items: center;
+  gap: 25px;
 }
-.assign-to {
-  height: 40px;
-  padding: 8px;
-  color: slategray;
-  border: 1px solid rgba(211, 211, 211, 0.685);
+.container-form div {
+  width: 100%;
 }
-.date,
-.priority,
-.submit-btn {
-  height: 35px;
-  padding: 8px 5px;
-  border: 1px solid rgba(211, 211, 211, 0.685);
-  color: slategray;
+.task {
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0 8px;
+  font-size: 1.5rem;
+  color: rgba(211, 211, 211, 0.616);
 }
-.submit-btn {
-  border: 1px solid darkblue;
-  background-color: lightblue;
-  font-weight: 600;
-  color: honeydew;
-  padding: 5px;
+.task:focus {
   font-size: 1.1rem;
+  color: black;
+}
+.assign-date-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 25px 0;
+}
+.submit-btn-container {
+  text-align: center;
+  padding: 10px;
+}
+.created-on,
+.due-date,
+.assign-to,
+.priority {
+  border: 1px solid lightgrey;
+  height: 35px;
+  padding: 0 8px;
+}
+.submit-btn {
+  padding: 13px 45px;
+  background: deepskyblue;
+  font-size: initial;
+}
+.submit-btn:hover {
+  background: rgba(0, 191, 255, 0.678);
+  color: white;
+  border-color: deepskyblue;
 }

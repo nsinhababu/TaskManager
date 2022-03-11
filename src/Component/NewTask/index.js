@@ -1,13 +1,19 @@
+// Import components
+import Input from './inputs';
+
 import './styles.css';
 
 const NewTask = ({ userList }) => {
   return (
-    <div>
+    <div className='newTask-container'>
       <form className='container-form'>
-        <div className='task-container'>
-          <input placeholder='Task' className='task' type='text' />
-        </div>
-        <div className='other-info'>
+        <Input
+          className={'task'}
+          name={'task'}
+          typeOfInput={'text'}
+          label={'Add Task'}
+        />
+        <div className='assign-date-container'>
           <select className='assign-to'>
             {userList?.map((user) => {
               return (
@@ -18,12 +24,16 @@ const NewTask = ({ userList }) => {
             })}
           </select>
 
-          <input className='date' type='date' />
+          <input className='created-on' type='date' />
+          <input className='due-date' type='date' />
+
           <select className='priority' type='text'>
-            <option value='high'>High</option>
-            <option value='medium'>Medium</option>
-            <option value='low'>Low</option>
+            <option value='1'>High</option>
+            <option value='2'>Medium</option>
+            <option value='3'>Low</option>
           </select>
+        </div>
+        <div className='submit-btn-container'>
           <button type='submit' className='submit-btn'>
             Submit
           </button>

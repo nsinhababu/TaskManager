@@ -5,4 +5,25 @@
   width: 100%;
   height: 100vh;
   background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-task-close-btn-container {
+  width: 700px;
+  height: 50px;
+  background: #fafafa;
+  padding: 10px 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.close-btn:hover {
+  border-color: red;
+  background: rgba(255, 0, 0, 0.5);
+}
+.close-btn {
+  padding: 7px;
+  background: rgba(255, 0, 0, 1);
+  font-weight: 700;
+  color: white;
 }

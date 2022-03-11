@@ -1,3 +1,19 @@
+.add-btn-container {
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 80px;
+}
+.add-btn {
+  padding: 10px 15px;
+  color: white;
+  background: darkgreen;
+}
+.add-btn:hover {
+  border-color: darkgreen;
+  background: rgba(0, 100, 0, 0.61);
+}
 .table-wrapper {
   width: 100%;
   margin: 0 auto;
@@ -15,15 +31,7 @@ th,
 td {
   padding-left: 10px;
 }
-.add-btn {
-  position: absolute;
-  top: 95px;
-  right: 181px;
-  padding: 5px 19px;
-  border: 1px solid green;
-  color: green;
-  background-color: white;
-}
+
 td {
   height: 70px;
   background: white;

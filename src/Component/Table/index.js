@@ -8,7 +8,6 @@ import Modal from '../../Portal';
 
 //Import styles
 import './styles.css';
-import { styleComponents } from './styles';
 
 // Table component
 const Table = ({ taskList, userList }) => {
@@ -23,12 +22,8 @@ const Table = ({ taskList, userList }) => {
 
   return (
     <>
-      <div style={styleComponents.table_top_btn_container}>
-        <button
-          style={styleComponents.table_top_btn}
-          onClick={modalToggle}
-          type='button'
-        >
+      <div className='add-btn-container'>
+        <button className='add-btn' onClick={modalToggle} type='button'>
           Add Task
         </button>
 
