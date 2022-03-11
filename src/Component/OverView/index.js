@@ -6,15 +6,16 @@ import './styles.css';
 import { fetchApi } from '../../utils';
 
 // Components
-import NewTask from '../NewTask';
+import NewTask from '../../Portal/NewTask';
 import NavBar from '../NavBar';
 import Table from '../Table';
 
+// overview component
 const OverView = () => {
-  // const [task, setTask] = useState(false);
   const [userList, setUserList] = useState([]);
   const [taskList, setTaskList] = useState([]);
 
+  // User Api
   useEffect(() => {
     fetchApi('listusers').then(({ users }) => {
       setUserList(users);
@@ -29,9 +30,7 @@ const OverView = () => {
   return (
     <div className='overview'>
       <NavBar />
-      <NewTask userList={userList} />
-
-      <Table taskList={taskList} />
+      <Table taskList={taskList} userList={userList} />
     </div>
   );
 };

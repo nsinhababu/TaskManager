@@ -1,11 +1,9 @@
 import './styles.css';
 
-const NewTask = ({ newTaskWindowHandler, addTask, userList }) => {
+const NewTask = ({ userList }) => {
   return (
-    <div className={addTask === true ? 'show' : 'hide'}>
-      <button onClick={newTaskWindowHandler} className='close-window'>
-        X
-      </button>
+    <div>
+      <button className='close-window'>X</button>
       <form className='container-form'>
         <div className='task-container'>
           <input placeholder='Task' className='task' type='text' />
