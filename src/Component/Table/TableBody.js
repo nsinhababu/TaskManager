@@ -3,8 +3,6 @@ import Pill from '../Pill';
 import { priorityTypes } from '../../utils/consts';
 
 const TableBody = ({ slicedTaskList }) => {
-  console.log(slicedTaskList);
-
   const showPriority = (priority) => {
     const currentPriority = priorityTypes[priority];
     const { color, text } = currentPriority || {};

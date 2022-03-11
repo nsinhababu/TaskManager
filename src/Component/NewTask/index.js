@@ -3,7 +3,6 @@ import './styles.css';
 const NewTask = ({ userList }) => {
   return (
     <div>
-      <button className='close-window'>X</button>
       <form className='container-form'>
         <div className='task-container'>
           <input placeholder='Task' className='task' type='text' />

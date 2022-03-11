@@ -6,7 +6,6 @@ import './styles.css';
 import { fetchApi } from '../../utils';
 
 // Components
-import NewTask from '../../Portal/NewTask';
 import NavBar from '../NavBar';
 import Table from '../Table';
 

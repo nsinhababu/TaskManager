@@ -1,62 +1,8 @@
-.container-form {
-  width: 800px;
-  margin: 0 auto;
-  height: 300px;
-  padding: 20px;
-  background-color: #fafafa;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-}
-.task-container {
-  flex: 2;
-}
-.close-window {
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  right: 370px;
-  top: 92px;
-  background: white;
-  border: 1px solid lightgray;
-}
-.task {
-  display: inline-block;
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 100%;
-  height: 100%;
-  font-size: 5rem;
-  border: 1px solid rgba(211, 211, 211, 0.685);
-  padding: 2px 5px;
-}
-.task:focus {
-  font-size: 1.2rem;
-}
-.other-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex: 1;
-}
-.assign-to {
-  height: 40px;
-  padding: 8px;
-  color: slategray;
-  border: 1px solid rgba(211, 211, 211, 0.685);
-}
-.date,
-.priority,
-.submit-btn {
-  height: 35px;
-  padding: 8px 5px;
-  border: 1px solid rgba(211, 211, 211, 0.685);
-  color: slategray;
-}
-.submit-btn {
-  border: 1px solid darkblue;
-  background-color: lightblue;
-  font-weight: 600;
-  color: honeydew;
-  padding: 5px;
-  font-size: 1.1rem;
+  height: 100vh;
+  background: white;
 }
