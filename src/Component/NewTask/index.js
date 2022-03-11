@@ -1,9 +1,28 @@
 // Import components
 import Input from './inputs';
+import Select from '../Select';
 
 import './styles.css';
 
 const NewTask = ({ userList }) => {
+  console.log(userList);
+  // Select Component Data
+
+  const priorityData = {
+    high: {
+      id: '1',
+      name: 'high',
+    },
+    medium: {
+      id: '2',
+      name: 'medium',
+    },
+    low: {
+      id: '1',
+      name: 'low',
+    },
+  };
+
   return (
     <div className='newTask-container'>
       <form className='container-form'>
@@ -13,26 +32,33 @@ const NewTask = ({ userList }) => {
           typeOfInput={'text'}
           label={'Add Task'}
         />
-        <div className='assign-date-container'>
-          <select className='assign-to'>
-            {userList?.map((user) => {
-              return (
-                <option value={user?.id} key={user?.id}>
-                  {user?.name}
-                </option>
-              );
-            })}
-          </select>
 
-          <input className='created-on' type='date' />
-          <input className='due-date' type='date' />
+        <Input
+          className={'created-on'}
+          name={'createdOn'}
+          typeOfInput={'date'}
+          label={'Created On:'}
+        />
 
-          <select className='priority' type='text'>
-            <option value='1'>High</option>
-            <option value='2'>Medium</option>
-            <option value='3'>Low</option>
-          </select>
-        </div>
+        <Input
+          className={'due-date'}
+          name={'dueDate'}
+          typeOfInput={'date'}
+          label={'Due Date:'}
+        />
+
+        <Select
+          options={userList}
+          selectName={'assignTo'}
+          label={'Assign to:'}
+        />
+
+        <Select
+          options={Object.values(priorityData)}
+          selectName={'priority'}
+          label={'Priority:'}
+        />
+
         <div className='submit-btn-container'>
           <button type='submit' className='submit-btn'>
             Submit
