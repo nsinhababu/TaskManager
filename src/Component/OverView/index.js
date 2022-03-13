@@ -16,20 +16,31 @@ const OverView = () => {
 
   // User Api
   useEffect(() => {
-    fetchApi('listusers').then(({ users }) => {
-      setUserList(users);
-    });
+    fetchApi({ url: 'listusers', method: 'get', reqObj: null }).then(
+      ({ users }) => {
+        setUserList(users);
+      }
+    );
   }, []);
 
   // task api
+  const fetchTaskList = () => {
+    fetchApi({ url: 'list', method: 'get', reqObj: null }).then(({ tasks }) =>
+      setTaskList(tasks)
+    );
+  };
   useEffect(() => {
-    fetchApi('list').then(({ tasks }) => setTaskList(tasks));
+    fetchTaskList();
   }, []);
 
   return (
     <div className='overview'>
       <NavBar />
-      <Table taskList={taskList} userList={userList} />
+      <Table
+        fetchTaskList={fetchTaskList}
+        taskList={taskList}
+        userList={userList}
+      />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import NewTask from '../Component/NewTask';
 // import css
 import './styles.css';
 
-const Modal = ({ children, isOpen, toggle, userList }) => {
+const Modal = ({ children, isOpen, toggle, userList, fetchTaskList }) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
@@ -18,7 +18,11 @@ const Modal = ({ children, isOpen, toggle, userList }) => {
             X
           </button>
         </div>
-        <NewTask userList={userList} />
+        <NewTask
+          fetchTaskList={fetchTaskList}
+          isOpen={isOpen}
+          userList={userList}
+        />
         {children}
       </div>
     </div>,

@@ -10,7 +10,7 @@ import Modal from '../../Portal';
 import './styles.css';
 
 // Table component
-const Table = ({ taskList, userList }) => {
+const Table = ({ taskList, userList, fetchTaskList }) => {
   const slicedTaskList = taskList?.slice(0, 10);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,12 @@ const Table = ({ taskList, userList }) => {
           Add Task
         </button>
 
-        <Modal isOpen={isOpen} toggle={modalToggle} userList={userList}></Modal>
+        <Modal
+          fetchTaskList={fetchTaskList}
+          isOpen={isOpen}
+          toggle={modalToggle}
+          userList={userList}
+        ></Modal>
       </div>
 
       <div className='table-wrapper'>

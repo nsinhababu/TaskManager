@@ -4,8 +4,9 @@ import Select from '../Select';
 
 import './styles.css';
 import { useState } from 'react';
+import { fetchApi } from '../../utils';
 
-const NewTask = ({ userList }) => {
+const NewTask = ({ userList, fetchTaskList, isOpen }) => {
   const [task, setTask] = useState({
     taskName: '',
     createdOn: '',
@@ -23,6 +24,10 @@ const NewTask = ({ userList }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(task);
+
+    fetchApi({ url: 'update', method: 'POST', reqObj: task }).then((res) => {
+      fetchTaskList();
+    });
   };
 
   const priorityData = {
