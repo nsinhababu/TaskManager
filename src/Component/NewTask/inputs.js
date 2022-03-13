@@ -1,8 +1,13 @@
-const Input = ({ className, name, typeOfInput, label }) => {
+const Input = ({ className, name, type, label, handleChange }) => {
   return (
     <div className='input-container'>
       <label htmlFor={name}>{label}</label>
-      <input className={className} name={name} type={typeOfInput} />
+      <input
+        onChange={handleChange}
+        className={className}
+        name={name}
+        type={type}
+      />
     </div>
   );
 };

@@ -3,10 +3,27 @@ import Input from './inputs';
 import Select from '../Select';
 
 import './styles.css';
+import { useState } from 'react';
 
 const NewTask = ({ userList }) => {
-  console.log(userList);
+  const [task, setTask] = useState({
+    taskName: '',
+    createdOn: '',
+    dueDate: '',
+    priority: '',
+    assignedTo: '',
+  });
   // Select Component Data
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setTask({ ...task, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(task);
+  };
 
   const priorityData = {
     high: {
@@ -18,49 +35,59 @@ const NewTask = ({ userList }) => {
       name: 'medium',
     },
     low: {
-      id: '1',
+      id: '3',
       name: 'low',
     },
   };
 
   return (
     <div className='newTask-container'>
-      <form className='container-form'>
+      <form className='container-form' onSubmit={handleSubmit}>
         <Input
-          className={'task'}
-          name={'task'}
-          typeOfInput={'text'}
-          label={'Add Task'}
+          className='task'
+          value={task.name}
+          name='taskName'
+          type='text'
+          handleChange={handleChange}
+          label='Add Task'
         />
 
         <Input
-          className={'created-on'}
-          name={'createdOn'}
-          typeOfInput={'date'}
-          label={'Created On:'}
+          className='created-on'
+          name='createdOn'
+          value={task.createdOn}
+          handleChange={handleChange}
+          type='date'
+          label='Created On:'
         />
 
         <Input
-          className={'due-date'}
-          name={'dueDate'}
-          typeOfInput={'date'}
-          label={'Due Date:'}
+          className='due-date'
+          name='dueDate'
+          value={task.dueDate}
+          handleChange={handleChange}
+          type='date'
+          label='Due Date:'
         />
 
         <Select
           options={userList}
-          selectName={'assignTo'}
-          label={'Assign to:'}
+          name='assignedTo'
+          value={task.assignedTo}
+          label='Assigned To'
+          handleChange={handleChange}
         />
 
         <Select
           options={Object.values(priorityData)}
-          selectName={'priority'}
-          label={'Priority:'}
+          name='priority'
+          value={task.priority}
+          handleChange={handleChange}
+          label='Priority'
         />
 
         <div className='submit-btn-container'>
-          <button type='submit' className='submit-btn'>
+          <button onClick={handleSubmit} type='submit' className='submit-btn'>
             Submit
           </button>
         </div>

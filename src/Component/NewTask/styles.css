@@ -15,11 +15,17 @@
 .input-container {
   display: flex;
 }
+
 .container-form div {
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 3px solid white;
 }
 .task {
-  width: 100%;
+  width: 91%;
   box-sizing: border-box;
   height: 50px;
   padding: 0 8px;
@@ -41,13 +47,25 @@
   text-align: center;
   padding: 10px;
 }
+select {
+  font-size: 1.1rem;
+}
+.created-on,
+.due-date {
+  font-size: 1rem;
+}
 .created-on,
 .due-date,
-.assign-to,
-.priority {
-  border: 1px solid lightgrey;
-  height: 35px;
-  padding: 0 8px;
+select {
+  width: 40%;
+  height: 40px;
+  text-transform: uppercase;
+  margin-left: 25%;
+  padding: 5px;
+}
+label {
+  color: dodgerblue;
+  font-weight: 600;
 }
 .submit-btn {
   padding: 13px 45px;
