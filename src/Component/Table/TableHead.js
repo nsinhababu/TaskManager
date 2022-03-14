@@ -7,7 +7,7 @@ const TableHead = () => {
         <th>Created On</th>
         <th>Due Date</th>
         <th>Priority</th>
-        <th>Manage</th>
+        <th>Actions</th>
       </tr>
     </thead>
   );

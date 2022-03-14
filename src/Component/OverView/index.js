@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import './styles.css';
 
 // Import utils
-import { fetchApi } from '../../utils';
+import { fetchApi, deleteAPI } from '../../utils';
 
-// Components
+// Components.
 import NavBar from '../NavBar';
 import Table from '../Table';
 
@@ -13,6 +13,14 @@ import Table from '../Table';
 const OverView = () => {
   const [userList, setUserList] = useState([]);
   const [taskList, setTaskList] = useState([]);
+  const [taskId, setTaskId] = useState('');
+  const [showDelete, setShowDelete] = useState(false);
+
+  const fetchTasks = () => {
+    fetchApi({ url: 'list', method: 'get', reqObj: null }).then(({ tasks }) =>
+      setTaskList(tasks)
+    );
+  };
 
   // User Api
   useEffect(() => {
@@ -23,23 +31,38 @@ const OverView = () => {
     );
   }, []);
 
-  // task api
-  const fetchTaskList = () => {
-    fetchApi({ url: 'list', method: 'get', reqObj: null }).then(({ tasks }) =>
-      setTaskList(tasks)
-    );
+  const handleDelete = (e) => {
+    console.log(taskId);
+
+    const formData = new FormData();
+    formData.append('taskid', `${taskId}`);
+
+    deleteAPI({ url: `delete`, formData }).then((res) => {
+      if (res.status === 'success') {
+        fetchTasks();
+        setShowDelete(!showDelete);
+      }
+      if (res.status === 'error') {
+        console.log('Show Toast for delete failed!');
+      }
+    });
   };
+
   useEffect(() => {
-    fetchTaskList();
+    fetchTasks();
   }, []);
 
   return (
     <div className='overview'>
       <NavBar />
       <Table
-        fetchTaskList={fetchTaskList}
+        fetchTaskList={fetchTasks}
         taskList={taskList}
         userList={userList}
+        handleDelete={handleDelete}
+        setTaskId={setTaskId}
+        showDelete={showDelete}
+        setShowDelete={setShowDelete}
       />
     </div>
   );

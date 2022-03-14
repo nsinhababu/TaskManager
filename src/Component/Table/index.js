@@ -5,12 +5,21 @@ import { useState } from 'react';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 import Modal from '../../Portal';
+import NewTask from '../NewTask';
 
 //Import styles
 import './styles.css';
 
 // Table component
-const Table = ({ taskList, userList, fetchTaskList }) => {
+const Table = ({
+  taskList,
+  userList,
+  fetchTaskList,
+  handleDelete,
+  showDelete,
+  setShowDelete,
+  setTaskId,
+}) => {
   const slicedTaskList = taskList?.slice(0, 10);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -32,13 +41,25 @@ const Table = ({ taskList, userList, fetchTaskList }) => {
           isOpen={isOpen}
           toggle={modalToggle}
           userList={userList}
-        ></Modal>
+        >
+          <NewTask
+            fetchTaskList={fetchTaskList}
+            isOpen={isOpen}
+            userList={userList}
+          />
+        </Modal>
       </div>
 
       <div className='table-wrapper'>
         <table className='custom-table'>
           <TableHead />
-          <TableBody slicedTaskList={slicedTaskList} />
+          <TableBody
+            slicedTaskList={slicedTaskList}
+            handleDelete={handleDelete}
+            setTaskId={setTaskId}
+            showDelete={showDelete}
+            setShowDelete={setShowDelete}
+          />
         </table>
       </div>
     </>
