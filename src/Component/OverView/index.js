@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './styles.css';
 
 // Import utils
-import { fetchApi, deleteAPI } from '../../utils';
+import { fetchApi, mutateAPI } from '../../utils';
 
 // Components.
 import NavBar from '../NavBar';
@@ -13,7 +13,7 @@ import Table from '../Table';
 const OverView = () => {
   const [userList, setUserList] = useState([]);
   const [taskList, setTaskList] = useState([]);
-  const [taskId, setTaskId] = useState('');
+  const [task, setTask] = useState({});
   const [showDelete, setShowDelete] = useState(false);
 
   const fetchTasks = () => {
@@ -32,12 +32,10 @@ const OverView = () => {
   }, []);
 
   const handleDelete = (e) => {
-    console.log(taskId);
-
     const formData = new FormData();
-    formData.append('taskid', `${taskId}`);
+    formData.append('taskid', `${task.id}`);
 
-    deleteAPI({ url: `delete`, formData }).then((res) => {
+    mutateAPI({ url: `delete`, formData }).then((res) => {
       if (res.status === 'success') {
         fetchTasks();
         setShowDelete(!showDelete);
@@ -60,7 +58,8 @@ const OverView = () => {
         taskList={taskList}
         userList={userList}
         handleDelete={handleDelete}
-        setTaskId={setTaskId}
+        task={task}
+        setTask={setTask}
         showDelete={showDelete}
         setShowDelete={setShowDelete}
       />

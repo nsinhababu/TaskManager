@@ -15,11 +15,10 @@ export const fetchApi = ({ url, method, reqObj }) => {
     .catch((e) => console.log(e));
 };
 
-export const deleteAPI = ({ url, formData }) => {
+export const mutateAPI = ({ url, formData }) => {
   const headers = {
     AuthToken: 'UrM4YHgb1FcqEf1tuKwmAMMX5MxFZ12a',
   };
-  debugger;
   return fetch(`${BASE_URL}/${url}`, {
     method: 'POST',
     headers,

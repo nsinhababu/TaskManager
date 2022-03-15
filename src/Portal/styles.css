@@ -9,13 +9,21 @@
   flex-direction: column;
   align-items: center;
 }
+
+.modal-card {
+  width: 100%;
+  max-width: 500px;
+  border: 3px solid darkcyan;
+  margin-top: 50px;
+  border-radius: 5px;
+  position: relative;
+}
 .new-task-close-btn-container {
-  width: 700px;
+  /* width: 700px; */
   height: 50px;
   background: #fafafa;
-  padding: 10px 60px;
-  display: flex;
-  justify-content: space-between;
+  padding: 10px;
+  text-align: right;
 }
 .close-btn:hover {
   border-color: red;

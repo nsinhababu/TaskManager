@@ -6,14 +6,11 @@
 }
 .container-form {
   width: 100%;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 25px; */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4 60px);
+  gap: 25px;
 }
 .input-container {
   display: flex;

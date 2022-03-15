@@ -4,15 +4,14 @@ import Select from '../Select';
 
 import './styles.css';
 import { useState } from 'react';
-import { fetchApi } from '../../utils';
+import { mutateAPI } from '../../utils';
 
-const NewTask = ({ userList, fetchTaskList, isOpen }) => {
+const NewTask = ({ userList, fetchTaskList, isOpen, setIsOpen }) => {
   const [task, setTask] = useState({
-    taskName: '',
-    createdOn: '',
-    dueDate: '',
+    message: '',
+    due_date: '',
     priority: '',
-    assignedTo: '',
+    assigned_to: '',
   });
   // Select Component Data
 
@@ -25,8 +24,26 @@ const NewTask = ({ userList, fetchTaskList, isOpen }) => {
     e.preventDefault();
     console.log(task);
 
-    fetchApi({ url: 'update', method: 'POST', reqObj: task }).then((res) => {
+    const { message, due_date, priority, assigned_to, taskid } = task || {};
+
+    const formData = new FormData();
+    formData.append('message', message);
+    formData.append('due_date', due_date);
+    formData.append('priority', priority);
+    formData.append('assigned_to', assigned_to);
+
+    if (taskid) {
+      formData.append('taskid', taskid);
+      mutateAPI({ url: 'update', formData }).then((res) => {
+        fetchTaskList();
+        setIsOpen(!isOpen);
+      });
+      return;
+    }
+
+    mutateAPI({ url: 'create', formData }).then((res) => {
       fetchTaskList();
+      setIsOpen(!isOpen);
     });
   };
 
@@ -50,26 +67,17 @@ const NewTask = ({ userList, fetchTaskList, isOpen }) => {
       <form className='container-form' onSubmit={handleSubmit}>
         <Input
           className='task'
-          value={task.name}
-          name='taskName'
+          value={task.message}
+          name='message'
           type='text'
           handleChange={handleChange}
           label='Add Task'
         />
 
         <Input
-          className='created-on'
-          name='createdOn'
-          value={task.createdOn}
-          handleChange={handleChange}
-          type='date'
-          label='Created On:'
-        />
-
-        <Input
-          className='due-date'
-          name='dueDate'
-          value={task.dueDate}
+          className='due_date'
+          name='due_date'
+          value={task.due_date}
           handleChange={handleChange}
           type='date'
           label='Due Date:'
@@ -77,8 +85,8 @@ const NewTask = ({ userList, fetchTaskList, isOpen }) => {
 
         <Select
           options={userList}
-          name='assignedTo'
-          value={task.assignedTo}
+          name='assigned_to'
+          value={task.assigned_to}
           label='Assigned To'
           handleChange={handleChange}
         />

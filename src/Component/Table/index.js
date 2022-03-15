@@ -18,7 +18,8 @@ const Table = ({
   handleDelete,
   showDelete,
   setShowDelete,
-  setTaskId,
+  setTask,
+  task,
 }) => {
   const slicedTaskList = taskList?.slice(0, 10);
 
@@ -44,6 +45,7 @@ const Table = ({
         >
           <NewTask
             fetchTaskList={fetchTaskList}
+            setIsOpen={setIsOpen}
             isOpen={isOpen}
             userList={userList}
           />
@@ -56,7 +58,8 @@ const Table = ({
           <TableBody
             slicedTaskList={slicedTaskList}
             handleDelete={handleDelete}
-            setTaskId={setTaskId}
+            task={task}
+            setTask={setTask}
             showDelete={showDelete}
             setShowDelete={setShowDelete}
           />

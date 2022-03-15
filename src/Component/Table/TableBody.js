@@ -15,7 +15,7 @@ import { priorityTypes } from '../../utils/consts';
 const TableBody = ({
   slicedTaskList,
   handleDelete,
-  setTaskId,
+  setTask,
   showDelete,
   setShowDelete,
 }) => {
@@ -49,7 +49,7 @@ const TableBody = ({
                 <button
                   className='btn btn-delete'
                   onClick={() => {
-                    setTaskId(id);
+                    setTask(task);
                     setShowDelete(!showDelete);
                   }}
                 >

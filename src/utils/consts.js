@@ -8,7 +8,7 @@ export const priorityTypes = {
     text: 'Medium',
   },
   3: {
-    color: 'yellow',
+    color: '',
     text: 'Low',
   },
 };
