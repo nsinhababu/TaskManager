@@ -57,7 +57,6 @@ label {
   padding: 13px 45px;
   background: deepskyblue;
   font-size: initial;
-  border-bottom: 2px solid rgb(21, 74, 189);
 }
 .submit-btn:hover {
   background: rgba(0, 191, 255, 0.678);

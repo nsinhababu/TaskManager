@@ -20,21 +20,30 @@
   background-color: #fafafa;
 }
 
-.custom-table {
+.task__list-container {
   width: 100%;
   color: black;
   padding: 50px 10px 10px;
-  box-shadow: 6px 6px 20px lightgrey;
+  display: flex;
   text-align: left;
+  flex-direction: column;
 }
-th,
-td {
-  padding-left: 10px;
+.task__list-head {
+  /* display: flex;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 3fr 1fr 2fr 2fr 1fr 3fr;
+  grid-gap: 5px;
 }
-
-td {
-  height: 70px;
-  background: white;
+.task__list-body {
+  display: flex;
+  flex-direction: column;
+}
+.task-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr 2fr 2fr 1fr 3fr;
+  height: 60px;
+  grid-gap: 5px;
 }
 .delete {
   color: red;
@@ -42,7 +51,7 @@ td {
   border: 1px solid red;
   background-color: white;
 }
-th {
+.task-description {
   height: 80px;
   background-color: aliceblue;
 }

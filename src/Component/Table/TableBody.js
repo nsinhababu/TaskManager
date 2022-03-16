@@ -30,18 +30,18 @@ const TableBody = ({
 
   return (
     <>
-      <tbody className='table-body'>
+      <div className='task__list-body'>
         {(slicedTaskList || []).map((task) => {
           const { id, assigned_name, message, created_on, due_date, priority } =
             task || {};
           return (
-            <tr key={id}>
-              <td>{message}</td>
-              <td>{assigned_name || 'N/A'}</td>
-              <td>{created_on}</td>
-              <td>{due_date || 'N/A'}</td>
-              <td>{showPriority(priority)}</td>
-              <td className='actions'>
+            <div className='task-container' key={id}>
+              <div className='task-name'>{message}</div>
+              <div className='task-assigned'>{assigned_name || 'N/A'}</div>
+              <div className='task-created'>{created_on}</div>
+              <div className='task-due_date'>{due_date || 'N/A'}</div>
+              <div className='task-priority'>{showPriority(priority)}</div>
+              <div className='task-manage'>
                 <button
                   className='btn btn-edit'
                   onClick={() => {
@@ -60,11 +60,11 @@ const TableBody = ({
                 >
                   Delete
                 </button>
-              </td>
-            </tr>
+              </div>
+            </div>
           );
         })}
-      </tbody>
+      </div>
       {showDelete && (
         <Modal isOpen={showDelete} toggle={() => setShowDelete(!showDelete)}>
           <DeleteTask

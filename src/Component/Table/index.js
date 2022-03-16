@@ -39,7 +39,7 @@ const Table = ({
       </div>
 
       <div className='table-wrapper'>
-        <table className='custom-table'>
+        <div className='task__list-container'>
           <TableHead />
           <TableBody
             slicedTaskList={slicedTaskList}
@@ -50,7 +50,7 @@ const Table = ({
             setShowDelete={setShowDelete}
             setIsOpen={setIsOpen}
           />
-        </table>
+        </div>
 
         {isOpen && (
           <Modal
