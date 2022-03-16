@@ -13,7 +13,15 @@ import Table from '../Table';
 const OverView = () => {
   const [userList, setUserList] = useState([]);
   const [taskList, setTaskList] = useState([]);
-  const [task, setTask] = useState({});
+  const [task, setTask] = useState({
+    message: '',
+    due_date: '',
+    priority: '',
+    assigned_to: '',
+  });
+
+  console.log('overview', task);
+
   const [showDelete, setShowDelete] = useState(false);
 
   const fetchTasks = () => {

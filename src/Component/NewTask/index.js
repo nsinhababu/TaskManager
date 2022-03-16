@@ -6,21 +6,26 @@ import './styles.css';
 import { useState } from 'react';
 import { mutateAPI } from '../../utils';
 
-const NewTask = ({ userList, fetchTaskList, isOpen, setIsOpen }) => {
-  const [task, setTask] = useState({
-    message: '',
-    due_date: '',
-    priority: '',
-    assigned_to: '',
-  });
-  // Select Component Data
-
+const NewTask = ({
+  userList,
+  fetchTaskList,
+  isOpen,
+  setIsOpen,
+  task,
+  setTask,
+}) => {
+  console.log('newtask', task);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTask({ ...task, [name]: value });
   };
 
+  // SUBMIT FUNCTION
   const handleSubmit = (e) => {
+    debugger;
+
+    console.log('submit', task);
+
     e.preventDefault();
     console.log(task);
 

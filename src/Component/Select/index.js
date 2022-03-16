@@ -1,6 +1,6 @@
 const Select = ({ options, name, label, handleChange }) => {
   return (
-    <div>
+    <div className='input-container'>
       {}
       <label htmlFor={name}>{label}</label>
       <select onChange={handleChange} name={name}>

@@ -18,6 +18,7 @@ const TableBody = ({
   setTask,
   showDelete,
   setShowDelete,
+  setIsOpen,
 }) => {
   const [showEdit, setShowEdit] = useState(false);
 
@@ -26,8 +27,6 @@ const TableBody = ({
     const { color, text } = currentPriority || {};
     return <Pill text={text} color={color} />;
   };
-
-  const handleEdit = () => {};
 
   return (
     <>
@@ -43,7 +42,13 @@ const TableBody = ({
               <td>{due_date || 'N/A'}</td>
               <td>{showPriority(priority)}</td>
               <td className='actions'>
-                <button className='btn btn-edit' onClick={handleEdit}>
+                <button
+                  className='btn btn-edit'
+                  onClick={() => {
+                    setIsOpen(true);
+                    setTask(task);
+                  }}
+                >
                   Edit
                 </button>
                 <button

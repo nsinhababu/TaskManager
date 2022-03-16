@@ -36,20 +36,6 @@ const Table = ({
         <button className='add-btn' onClick={modalToggle} type='button'>
           Add Task
         </button>
-
-        <Modal
-          fetchTaskList={fetchTaskList}
-          isOpen={isOpen}
-          toggle={modalToggle}
-          userList={userList}
-        >
-          <NewTask
-            fetchTaskList={fetchTaskList}
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-            userList={userList}
-          />
-        </Modal>
       </div>
 
       <div className='table-wrapper'>
@@ -62,8 +48,27 @@ const Table = ({
             setTask={setTask}
             showDelete={showDelete}
             setShowDelete={setShowDelete}
+            setIsOpen={setIsOpen}
           />
         </table>
+
+        {isOpen && (
+          <Modal
+            fetchTaskList={fetchTaskList}
+            isOpen={isOpen}
+            toggle={modalToggle}
+            userList={userList}
+          >
+            <NewTask
+              fetchTaskList={fetchTaskList}
+              setIsOpen={setIsOpen}
+              isOpen={isOpen}
+              userList={userList}
+              task={task}
+              setTask={setTask}
+            />
+          </Modal>
+        )}
       </div>
     </>
   );
