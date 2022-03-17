@@ -36,16 +36,39 @@ const TableBody = ({
             task || {};
           return (
             <div className='task-container' key={id}>
-              <div className='task-name'>{message}</div>
-              <div className='task-assigned'>{assigned_name || 'N/A'}</div>
-              <div className='task-created'>{created_on}</div>
-              <div className='task-due_date'>{due_date || 'N/A'}</div>
-              <div className='task-priority'>{showPriority(priority)}</div>
+              <div>
+                <div className='task-name'>
+                  <span>Task:</span>
+                  {message}
+                </div>
+
+                <div className='task-priority'>{showPriority(priority)}</div>
+              </div>
+
+              <div className='task-assigned'>
+                <span>Assigned to:</span>
+                {assigned_name || 'N/A'}
+              </div>
+
+              <div className='task-created'>
+                <span>Created on:</span>
+                {created_on}
+              </div>
+
+              <div className='task-due_date'>
+                <span>Due date:</span>
+                {due_date || 'N/A'}
+              </div>
+
               <div className='task-manage'>
                 <button
                   className='btn btn-edit'
-                  onClick={() => {
+                  onClick={(e) => {
+                    debugger;
+                    console.log(e);
+
                     setIsOpen(true);
+
                     setTask(task);
                   }}
                 >

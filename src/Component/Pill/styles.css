@@ -1,11 +1,11 @@
 .pill {
-  padding: 5px 20px;
-  min-width: 100px;
   display: inline-block;
   color: #fff;
-  width: 100px;
+  width: 18px;
   font-size: 0.875rem;
   text-align: center;
-  vertical-align: super;
   border-radius: 30px;
+  position: absolute;
+  top: -22px;
+  right: -3px;
 }

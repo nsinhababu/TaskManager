@@ -14,7 +14,6 @@ const NewTask = ({
   task,
   setTask,
 }) => {
-  console.log('newtask', task);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTask({ ...task, [name]: value });

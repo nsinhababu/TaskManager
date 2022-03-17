@@ -1,14 +1,14 @@
 export const priorityTypes = {
   1: {
-    color: 'red',
-    text: 'High',
+    color: '#ff6f3c',
+    text: 'H',
   },
   2: {
-    color: 'orange',
-    text: 'Medium',
+    color: '#ff9a3c',
+    text: 'M',
   },
   3: {
-    color: '',
-    text: 'Low',
+    color: '#ffc93c',
+    text: 'L',
   },
 };

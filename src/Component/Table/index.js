@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 // Import Components
-import TableHead from './TableHead';
+// import TableHead from './TableHead';
 import TableBody from './TableBody';
 import Modal from '../../Portal';
 import NewTask from '../NewTask';
@@ -39,18 +39,16 @@ const Table = ({
       </div>
 
       <div className='table-wrapper'>
-        <div className='task__list-container'>
-          <TableHead />
-          <TableBody
-            slicedTaskList={slicedTaskList}
-            handleDelete={handleDelete}
-            task={task}
-            setTask={setTask}
-            showDelete={showDelete}
-            setShowDelete={setShowDelete}
-            setIsOpen={setIsOpen}
-          />
-        </div>
+        {/* <TableHead /> */}
+        <TableBody
+          slicedTaskList={slicedTaskList}
+          handleDelete={handleDelete}
+          task={task}
+          setTask={setTask}
+          showDelete={showDelete}
+          setShowDelete={setShowDelete}
+          setIsOpen={setIsOpen}
+        />
 
         {isOpen && (
           <Modal
