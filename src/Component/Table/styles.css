@@ -22,9 +22,14 @@
 
 .task__list-body {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 24px;
-  justify-content: center;
+  width: 930px;
+  margin: 10px auto;
+  height: 400px;
+  align-items: center;
+  overflow-x: scroll;
+  padding: 0 25px;
 }
 
 .task__list-container {
@@ -39,18 +44,19 @@
 .task-container {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  min-width: 280px;
   height: 350px;
   border: 1px solid #d0d0d0;
+  box-shadow: 1px 2px 7px #e0e0e0;
+
   justify-content: space-around;
   padding: 12px;
   transition: 0.2s;
 }
 
 .task-container:hover {
-  transform: translateY(-8px);
-  transform: scale(1.05);
-  box-shadow: 1px 2px 6px #e0e0e0;
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 1px 2px 15px #e0e0e0;
   border: 1px solid #e0e0e0;
 }
 .task-container > div {

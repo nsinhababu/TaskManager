@@ -1,11 +1,17 @@
 .navbar {
   position: sticky;
   top: 0;
-  background: #e0e0e0;
+  background: white;
   opacity: 1;
   height: 60px;
   border-bottom: 1px solid lightgrey;
   text-align: left;
   padding: 1px 143px;
   opacity: 1;
+  z-index: 500;
+}
+.navbar > div {
+  background: linear-gradient(to top, rgb(13, 11, 136), rgb(86, 255, 248) 111%);
+  background-clip: text;
+  color: transparent;
 }
